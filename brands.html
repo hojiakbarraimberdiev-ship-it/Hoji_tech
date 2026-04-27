@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Бренды — Hoji.tech</title>
+  <meta name="description" content="Бренды, с которыми работает Hoji.tech: Dell, HP, Lenovo, MSI, Acer и другие.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .image-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      padding: 24px;
+      backdrop-filter: blur(4px);
+    }
+    .image-modal.show {
+      display: flex;
+    }
+    .image-modal__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+    }
+    .image-modal__content {
+      position: relative;
+      max-width: 95vw;
+      max-height: 95vh;
+      width: min(880px, 100%);
+      padding: 16px;
+      border-radius: var(--radius-lg);
+      background: rgba(15, 18, 27, 0.96);
+      box-shadow: var(--shadow-2);
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .image-modal__content img {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: var(--radius);
+      object-fit: contain;
+    }
+    .image-modal__close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      border: none;
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      width: 34px;
+      height: 34px;  
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 1;
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Бренды Hoji.tech",
+    "description": "Бренды компьютерной техники и ноутбуков"
+  }
+  </script>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo">
+        <span class="logo-icon">⟨/⟩</span>
+        <span class="logo-text">Hoji<span class="accent">.Tech</span></span>
+      </a>
+      <nav class="header__nav" id="mainNav">
+        <a href="catalog.html" class="nav-link">Каталог</a>
+        <a href="about.html" class="nav-link">О нас</a>
+        <a href="contacts.html" class="nav-link">Контакты</a>
+        <a href="brands.html" class="nav-link active">Бренды</a>
+        <a href="listings.html" class="nav-link">Объявления</a>
+      </nav>
+      <div class="header__actions">
+        <button class="btn-icon theme-toggle" id="themeToggle" aria-label="Тема"><span class="theme-icon">◑</span></button>
+        <a href="cart.html" class="btn-icon cart-btn"><span class="cart-icon">◫</span><span class="cart-badge" id="cartBadge" style="display:none">0</span></a>
+        <a href="login.html" class="btn-icon" id="authBtn"><span>◎</span></a>
+        <button class="btn-icon burger" id="burger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="catalog-page">
+    <div class="container">
+      <div class="page-header">
+        <h1 class="page-title">Бренды</h1>
+        <div class="breadcrumb"><a href="index.html">Главная</a> / <span>Бренды</span></div>
+      </div>
+      <p class="page-subtitle">Мы предлагаем технику от проверенных брендов: от надёжных бизнес-платформ до производительных игровых решений.</p>
+
+      <div class="catalog-search">
+        <div class="search-wrap">
+          <span class="search-icon">⌕</span>
+          <input type="search" id="brandSearch" class="search-input" placeholder="Поиск брендов..." autocomplete="off">
+        </div>
+      </div>
+
+      <div class="catalog-toolbar">
+        <div class="catalog-count">Найдено: <span id="brandCount">7</span> брендов</div>
+        <div class="catalog-sort">
+          <label for="brandSortSelect">Сортировка:</label>
+          <select id="brandSortSelect" class="sort-select">
+            <option value="popular">По популярности</option>
+            <option value="name_asc">По названию</option>
+            <option value="name_desc">По названию (Z-A)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="products-grid">
+        <article class="product-card">
+          <div class="product-card__img-wrap">
+            <img src="Фото/бренд.jpg" alt="Все бренды" class="product-card__img brand-image-clickable" style="cursor:pointer;" data-large-src="Фото/бренд.jpg">
+          </div>
+          <div class="product-card__body">
+            <span class="product-card__brand">Все бренды</span>
+            <h2 class="product-card__title">Все бренды</h2>
+            <p>Собрание лучших производителей компьютерной техники и ноутбуков.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img-wrap">
+            <img src="Фото/Dell.jpg" alt="Dell" class="product-card__img">
+          </div>
+          <div class="product-card__body">
+            <span class="product-card__brand">Dell</span>
+            <h2 class="product-card__title">Dell</h2>
+            <p>Надёжные решения для офиса, учебы и высокой производительности.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img-wrap">
+            <img src="Фото/hp.jpg" alt="HP" class="product-card__img">
+          </div>
+          <div class="product-card__body">
+            <span class="product-card__brand">HP</span>
+            <h2 class="product-card__title">HP</h2>
+            <p>Широкий выбор ноутбуков и рабочих станций для бизнеса и обучения.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img-wrap">
+            <img src="Фото/Lenovo.jpg" alt="Lenovo" class="product-card__img">
+          </div>
+          <div class="product-card__body">
+            <span class="product-card__brand">Lenovo</span>
+            <h2 class="product-card__title">Lenovo</h2>
+            <p>Универсальные ноутбуки и ПК для дома, офиса и мобильной работы.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img-wrap">
+            <img src="Фото/msi.jpg" alt="MSI" class="product-card__img">
+          </div>
+          <div class="product-card__body">
+            <span class="product-card__brand">MSI</span>
+            <h2 class="product-card__title">MSI</h2>
+            <p>Игровые ноутбуки и мощные компоненты для любителей скорости.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img-wrap">
+            <img src="Фото/acer1.jpg" alt="Acer" class="product-card__img">
+          </div>
+          <div class="product-card__body">
+            <span class="product-card__brand">Acer</span>
+            <h2 class="product-card__title">Acer</h2>
+            <p>Стильные и доступные решения для учебы, работы и игр.</p>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__img-wrap">
+            <img src="Фото/asus.jpg" alt="Asus" class="product-card__img">
+          </div>
+          <div class="product-card__body">
+            <span class="product-card__brand">Asus</span>
+            <h2 class="product-card__title">Asus</h2>
+            <p>Продуктивные ноутбуки и игровые системы с фирменным дизайном.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="index.html" class="header__logo"><span class="logo-icon">⟨/⟩</span><span class="logo-text">Hoji<span class="accent">.Tech</span></span></a>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <h4>Категории</h4>
+          <a href="catalog.html">Каталог</a>
+          <a href="catalog.html?type=pc">ПК</a>
+          <a href="catalog.html?type=laptop">Ноутбуки</a>
+          <a href="catalog.html?condition=used">Б/У</a>
+        </div>
+        <div class="footer__col">
+          <h4>Информация</h4>
+          <a href="about.html">О нас</a>
+          <a href="contacts.html">Контакты</a>
+          <a href="profile.html">Личный кабинет</a>
+        </div>
+        <div class="footer__col">
+          <h4>Контакты</h4>
+          <a href="tel:+996553181900">+996 553 181 900</a>
+          <a href="mailto:info@hoji.tech">info@hoji.tech</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom"><div class="container"><span>© 2025 Hoji.tech</span></div></div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <div class="image-modal" id="brandImageModal">
+    <div class="image-modal__backdrop" id="brandImageBackdrop"></div>
+    <div class="image-modal__content">
+      <button class="image-modal__close" id="brandImageClose" aria-label="Закрыть">×</button>
+      <img id="brandImageModalImg" src="" alt="" />
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('brandImageModal');
+    const modalImg = document.getElementById('brandImageModalImg');
+    const closeBtn = document.getElementById('brandImageClose');
+    const backdrop = document.getElementById('brandImageBackdrop');
+
+    document.querySelectorAll('.brand-image-clickable').forEach(img => {
+      img.addEventListener('click', () => {
+        modalImg.src = img.dataset.largeSrc || img.src;
+        modalImg.alt = img.alt || 'Большое изображение';
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    const closeModal = () => {
+      modal.classList.remove('show');
+      document.body.style.overflow = '';
+      modalImg.src = '';
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  </script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

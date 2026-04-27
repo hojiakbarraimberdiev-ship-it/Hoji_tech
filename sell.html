@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Подать объявление — Hoji.Tech</title>
+  <meta name="description" content="Форма для подачи объявления о продаже ноутбука на Hoji.Tech">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo"><span class="logo-icon">⟨/⟩</span><span class="logo-text">Hoji<span class="accent">.Tech</span></span></a>
+      <nav class="header__nav" id="mainNav">
+        <a href="catalog.html" class="nav-link">Каталог</a>
+        <a href="about.html" class="nav-link">О нас</a>
+        <a href="contacts.html" class="nav-link">Контакты</a>
+        <a href="brands.html" class="nav-link">Бренды</a>
+        <a href="listings.html" class="nav-link">Объявления</a>
+      </nav>
+      <div class="header__actions">
+        <button class="btn-icon theme-toggle" id="themeToggle" aria-label="Переключить тему"><span class="theme-icon">◑</span></button>
+        <a href="cart.html" class="btn-icon cart-btn" aria-label="Корзина"><span class="cart-icon">◫</span><span class="cart-badge" id="cartBadge" style="display:none">0</span></a>
+        <a href="login.html" class="btn-icon" id="authBtn" aria-label="Войти"><span>◎</span></a>
+        <button class="btn-icon burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="page-header">
+        <h1 class="page-title">Подать объявление</h1>
+        <p class="page-subtitle">Продай свой ноутбук напрямую другим пользователям.</p>
+      </div>
+
+      <form class="form" id="sellForm" novalidate>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="listingTitle">Название товара *</label>
+            <input type="text" id="listingTitle" name="title" class="form-input" placeholder="Ноутбук ASUS Vivobook" required>
+            <span class="form-error" id="listingTitleError"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="listingPrice">Цена (KGS) *</label>
+            <input type="number" id="listingPrice" name="price" class="form-input" placeholder="25000" min="1" required>
+            <span class="form-error" id="listingPriceError"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="listingType">Категория</label>
+            <select id="listingType" name="type" class="form-input">
+              <option value="laptop">Ноутбук</option>
+              <option value="pc">ПК</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="listingCondition">Состояние</label>
+            <select id="listingCondition" name="condition" class="form-input">
+              <option value="used">Б/У</option>
+              <option value="new">Новый</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="listingLocation">Город / адрес</label>
+            <input type="text" id="listingLocation" name="location" class="form-input" placeholder="Ош, центр">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="listingPhone">Телефон *</label>
+            <div class="phone-input-wrap">
+              <span class="phone-prefix">🇰🇬 +996</span>
+              <input type="tel" id="listingPhone" name="phone" class="form-input phone-input" placeholder="555 000 000" maxlength="9" required>
+            </div>
+            <span class="form-error" id="listingPhoneError"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="listingEmail">Email</label>
+            <input type="email" id="listingEmail" name="email" class="form-input" placeholder="ivan@email.com">
+            <span class="form-error" id="listingEmailError"></span>
+          </div>
+          <div class="form-group form-fullwidth">
+            <label class="form-label" for="listingDescription">Описание *</label>
+            <textarea id="listingDescription" name="description" class="form-input form-textarea" rows="5" placeholder="Состояние, комплектация, причины продажи" required></textarea>
+            <span class="form-error" id="listingDescriptionError"></span>
+          </div>
+          <div class="form-group form-fullwidth">
+            <label class="form-label" for="listingImages">Фото (URLs через запятую)</label>
+            <textarea id="listingImages" name="images" class="form-input form-textarea" rows="3" placeholder="https://example.com/image1.jpg, https://example.com/image2.jpg"></textarea>
+          </div>
+          <div class="form-group form-fullwidth">
+            <label class="form-label" for="listingImageFiles">ИЛИ загрузить фото</label>
+            <input type="file" id="listingImageFiles" name="imageFiles" class="form-input" multiple accept="image/*">
+            <span class="form-hint">Можно загрузить несколько фото</span>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn--primary btn--lg">Опубликовать объявление</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__bottom"><div class="container"><span>© 2026 Hoji.tech</span></div></div>
+  </footer>
+  <div class="toast-container" id="toastContainer"></div>
+  <div class="nav-overlay" id="navOverlay"></div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
+
